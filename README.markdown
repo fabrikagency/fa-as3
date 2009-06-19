@@ -1,28 +1,63 @@
 FA Actionscript 3 Library
 =========================
 
-The FA library was created to shorten the creation and manipulation of Sprites.
+FA-AS3 was created to shorten the creation and manipulation of Sprites.
 
 
-# Instead of writing this #
+## Instead of writing this ##
 
 var mySprite:Sprite = new Sprite();
 mySprite.x = 100;
+
 mySprite.y = 100;
+
 mySprite.alpha = 0.5;
+
 addChild(mySprite);
 
 mySprite.addEventListener(MouseEvent.CLICK, onClick); // don't forget to add import statements!
+
 mySprite.addEventListener(MouseEvent.MOUSE_OVER, onOver);
+
 mySprite.addEventListener(MouseEvent.MOUSE_OUT, onOut);
 
-# Now you can do it like this #
+## Now you can do it like this ##
 var faSprite:FASprite = new FASprite({x:100, y:100, alpha:0.5, childOf:this}).click(onClick).hover(onOver, onOut);
 
 That's it!
 
+Sprite creation and manipulation just got 10x faster.
 
-## Chainability ##
+
+## Effects ##
+
+FA-AS3 supports effects and tweens by utilizing [TweenMax](http://tweenmax.com)
+
+Add some TweenMax effects
+
+faSprite.clickEffect(1, {scale:2}).hoverEffect(0.5, {alpha:1}, {alpha:0.5});
+
+
+Store some tweens to be executed later
+
+faSprite.addTween('moveRight', 1, {x:100});
+
+
+Execute stored tween
+faSprite.tween('moveRight');
+
+
+## Props ##
+
+It also supports a .p(Object) function (same as the constructor):
+
+faSprite.p({rotationX:90});
+
+
+A few interesting things to do with .p()
+
+faSprite.p({children:[spriteA, spriteB], childOf:spriteC});
+
 
 ## Contributors ##
   * [Caleb Wright](http://fabrikagency.com)
