@@ -1,12 +1,13 @@
 FA Actionscript 3 Library
 =========================
 
-FA-AS3 was created to shorten the creation and manipulation of Sprites.
+FA-AS3 was created to shorten the creation and manipulation of Sprites. I found that I loved how you can chain methods with jQuery's and wanted to do something similar for AS3.
 
 
 ## Instead of writing this ##
 
 var mySprite:Sprite = new Sprite();
+
 mySprite.x = 100;
 
 mySprite.y = 100;
@@ -21,12 +22,14 @@ mySprite.addEventListener(MouseEvent.MOUSE_OVER, onOver);
 
 mySprite.addEventListener(MouseEvent.MOUSE_OUT, onOut);
 
+
 ## Now you can do it like this ##
+
+import fa.FASprite;
+
 var faSprite:FASprite = new FASprite({x:100, y:100, alpha:0.5, childOf:this}).click(onClick).hover(onOver, onOut);
 
-That's it!
-
-Sprite creation and manipulation just got 10x faster.
+That's it! Sprite creation and manipulation just got 10x faster.
 
 
 ## Effects ##
@@ -57,6 +60,16 @@ faSprite.p({rotationX:90});
 A few interesting things to do with .p()
 
 faSprite.p({children:[spriteA, spriteB], childOf:spriteC});
+
+
+## Even More ##
+
+There are many more methods written to extend the core, just read the source to see what's hidden.
+
+
+## Requirements ##
+
+You'll need a reference to [TweenMax](http://tweenmax.com), otherwise you'll need to fork this and rip it out.
 
 
 ## Contributors ##
