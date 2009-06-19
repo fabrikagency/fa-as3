@@ -113,6 +113,16 @@ package fa {
 			return this;
 		}
 		
+		public function forceShow (e:Event = null):* {
+			this.visible = true;
+			return this;
+		}
+		
+		public function forceHide (e:Event = null):* {
+			this.visible = false;
+			return this;
+		}
+		
 		
 		// Shorthand Events --------------------
 		
